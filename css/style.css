@@ -206,7 +206,7 @@ nav {
     height: 100vh;               /* teljes hero magasság */
     padding: 40px;
     background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(5px);
     box-shadow: 0 0 60px rgba(255, 255, 255, 0.4);
     border-radius: 40px;
 
