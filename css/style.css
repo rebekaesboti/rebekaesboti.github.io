@@ -206,7 +206,7 @@ nav {
     height: 100vh;               /* teljes hero magasság */
     padding: 40px;
     background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(12px);
     box-shadow: 0 0 60px rgba(255, 255, 255, 0.4);
     border-radius: 40px;
 
@@ -473,12 +473,12 @@ video {
     }
 
     .image-side {
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: fixed;
+        inset: 0;
         width: 100%;
-        height: 100%;
+        height: 100svh;
         z-index: 0;
+        pointer-events: none;
     }
 
     .content-side {
@@ -487,18 +487,47 @@ video {
         min-height: 100svh;
         padding: 120px 24px 60px 24px;
         background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(2px);
-        overflow: visible;
+        backdrop-filter: blur(10px);
+        overflow-x: auto;
+        overflow-y: visible;
         z-index: 1;
     }
 
+    .content-inner {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .content-inner p,
+    .content-inner h1,
+    .content-inner h2,
+    .content-inner h3,
+    .content-inner a,
+    .info-text,
+    .info-text-2sor {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
     .content-inner p {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .info-text,
     .info-text-2sor {
-        font-size: 26px;
+        font-size: 22px;
+    }
+
+    .info-item {
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .info-icon {
+        width: 64px;
+        height: 64px;
+        margin-right: 0;
+        flex: 0 0 64px;
     }
 
     .hero-box {
