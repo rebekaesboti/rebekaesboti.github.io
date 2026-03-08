@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rebeka & Boti esküvő</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="image/jpg" href="images/favicon.png"/>
+  </head>
+  <body>
+
+    <nav>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <a href="index.html" class="mobile-logo">
+        <img src="images/sunik.svg" alt="Főoldal">
+      </a>
+
+      <div class="left-menu">
+  <a href="index.html" class="home-link">
+    <img class="logo" src="images/sunik.svg" alt="Főoldal">
+    <span>Főoldal</span>
+  </a>
+</div>
+
+        <div class="right-menu">
+          <a href="hazassagkotes.html" class="active" data-text="Házasságkötés">
+            <span>Házasságkötés</span>
+          </a>
+          <a href="naszajandek.html" data-text="Nászajándék">
+            <span>Nászajándék</span>
+          </a>
+          <a href="lakodalom.html" data-text="Lakodalom">
+            <span>Lakodalom</span>
+          </a>
+          <a href="kapcsolat.html" data-text="Kapcsolat">
+            <span>Kapcsolat</span>
+          </a>
+        </div>
+
+        <label for="menu-toggle" class="hamburger" aria-label="Menü">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <div class="mobile-menu">
+          <a href="index.html">Főoldal</a>
+          <a href="hazassagkotes.html" class="active">Házasságkötés</a>
+          <a href="naszajandek.html">Nászajándék</a>
+          <a href="lakodalom.html">Lakodalom</a>
+          <a href="kapcsolat.html">Kapcsolat</a>
+        </div>
+      </nav>
+
+<section class="split-layout">
+
+<!-- BAL OLDAL – TARTALOM -->
+<div class="content-side">
+  <div class="content-inner">
+    <h2><i>"Eljegyezlek magamnak örökre" <br> (Oz 2,21)</i><h2>
+    <p><b>Kedves Családunk és Barátaink!</b> <br> Nagy szeretettel hívunk, hogy együtt ünnepeljünk azon a napon, melyen összekötjük életünket.</p>
+    <div>
+      <div class="info-block">
+
+          <div class="info-item">
+            <img src="images/naptar.svg" alt="Időpont ikon" class="info-icon">
+            <div class="info-text-2sor">
+              2026. augusztus 22.<br>
+              14 óra
+            </div>
+          </div>
+
+          <div class="info-item">
+            <img src="images/templom.svg" alt="Templom ikon" class="info-icon">
+            <div class="info-text">
+              Országúti Szent István első vértanú templom<br>
+              <a href="https://maps.app.goo.gl/XpboLc7BLsnChvrg8" target="_blank" class="link">1024 Budapest, Margit körút 23.</a>
+            </div>
+          </div>
+
+        </div>
+    </div>
+    <p>A nászmise után szívesen látunk mindenkit beszélgetésre és agapéra a plébánia udvarán.</p>
+    <h1>Megközelítés</h1>
+    <p>A templom környékén kevés a parkolóhely, javasoljuk a tömegközlekedéssel való érkezést (például 4-6, 17 villamos Mechwart liget megállótól 5 perc séta).</p>
+    <video id="vid" autoplay muted>
+        <source src="video/Save_the_date.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<!-- JOBB OLDAL – KÉP -->
+<div class="image-side">
+  <img src="images/kep1.png" alt="Házasságkötés">
+</div>
+
+
+
+  </section>
+
+  <script>
+const v = document.getElementById("vid");
+let startCut = 1;
+let endCut = 2.5;
+let forward = true;
+
+v.addEventListener("loadedmetadata", () => {
+  v.currentTime = startCut;
+});
+
+v.addEventListener("timeupdate", () => {
+  if (forward && v.currentTime >= v.duration - endCut) {
+    forward = false;
+    v.playbackRate = -1;
+  }
+
+  if (!forward && v.currentTime <= startCut) {
+    forward = true;
+    v.playbackRate = 1;
+  }
+});
+</script>
+
+</body>
+</html>

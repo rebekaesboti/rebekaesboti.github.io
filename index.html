@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rebeka & Boti esküvő</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="image/jpg" href="images/sunik.svg"/>
+  </head>
+  <body class="home">
+
+    <nav>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <a href="index.html" class="mobile-logo">Rebeka&Boti</a>
+
+      <div class="left-menu">
+          <a href="index.html" data-text="Rebeka&Boti">
+            <span>Rebeka&Boti</span>
+          </a>
+        </div>
+
+        <div class="right-menu">
+          <a href="hazassagkotes.html" data-text="Házasságkötés">
+            <span>Házasságkötés</span>
+          </a>
+          <a href="naszajandek.html" data-text="Nászajándék">
+            <span>Nászajándék</span>
+          </a>
+          <a href="lakodalom.html" data-text="Lakodalom">
+            <span>Lakodalom</span>
+          </a>
+          <a href="kapcsolat.html" data-text="Kapcsolat">
+            <span>Kapcsolat</span>
+          </a>
+        </div>
+
+        <label for="menu-toggle" class="hamburger" aria-label="Menü">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <div class="mobile-menu">
+          <a href="index.html">Főoldal</a>
+          <a href="hazassagkotes.html">Házasságkötés</a>
+          <a href="naszajandek.html">Nászajándék</a>
+          <a href="lakodalom.html">Lakodalom</a>
+          <a href="kapcsolat.html">Kapcsolat</a>
+        </div>
+      </nav>
+
+  <section class="hero">
+
+    <div class="hero-overlay">
+      <div class="hero-box">
+        <!-- Ide jöhet az SVG -->
+        <div class="hero-svg">
+          <!-- példa SVG -->
+          <img src="images/sunik.svg" alt="Sünik">
+        </div>
+        <h1>Már csak</h1>
+        <h2 data-countdown-number>-- nap</h2>
+        <h3>az esküvőnkig</h3>
+
+      </div>
+    </div>
+
+  </section>
+  <script>
+        const targetDate = new Date("2026-08-22T00:00:00+02:00");
+        const numberEl = document.querySelector("[data-countdown-number]");
+
+        function updateCountdown() {
+          const now = new Date();
+          const diffMs = targetDate - now;
+          const days = Math.max(0, Math.ceil(diffMs / (1000 * 60 * 60 * 24)));
+          numberEl.textContent = `${days} nap`;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 60 * 60 * 1000);
+      </script>
+</body>
+</html>

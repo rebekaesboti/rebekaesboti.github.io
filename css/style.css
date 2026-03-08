@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Raleway;
+  color: #262262;
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;   /* alapértelmezett fehér */
+  overflow-x: hidden;
+}
+
+body.home{
+  background-image: url("../images/main.png");
+ background-size: cover;
+ background-position: center;  /* itt állítod a fókuszt */
+ background-repeat: no-repeat;
+ overflow: hidden;
+}
+/* =======================
+   NAVIGATION
+======================= */
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: Nunito;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: white;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+/* ---- MOBIL NAV ALAPOK ---- */
+.menu-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mobile-logo,
+.hamburger,
+.mobile-menu {
+    display: none;
+}
+
+.mobile-logo img {
+    height: 40px;
+}
+
+.mobile-logo {
+    text-decoration: none;
+    font-family: Nunito;
+    font-size: 25px;
+    font-weight: 600;
+    color: #262262;
+}
+
+.hamburger {
+    width: 36px;
+    height: 26px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #262262;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100svh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 30;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 600;
+    color: #262262;
+}
+
+.menu-toggle:checked ~ .mobile-menu {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(11.5px) rotate(45deg);
+}
+
+.menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-11.5px) rotate(-45deg);
+}
+
+/* ---- BAL OLDAL ---- */
+
+.left-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #262262;
+    font-weight: 600;
+}
+
+.left-menu a:hover,
+.left-menu a.active {
+    font-weight: 800;
+}
+
+/* Logo */
+
+.logo {
+    height: 40px;
+    transition: 0.3s ease;
+}
+
+.left-menu a:hover .logo {
+    transform: scale(1.05);
+}
+
+/* ---- JOBB OLDAL ---- */
+
+.right-menu a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 25px;
+    color: #262262;
+    margin-left: 20px;
+}
+
+/* Stabil szélesség trükk */
+.right-menu a::before {
+    content: attr(data-text);
+    font-weight: 800;
+    visibility: hidden;
+    white-space: nowrap;
+    display: block;
+}
+
+/* Látható szöveg */
+.right-menu a span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 600;
+}
+
+/* Hover */
+.right-menu a:hover span,
+.right-menu a.active span {
+    opacity: 0;
+}
+
+.right-menu a:hover::before,
+.right-menu a.active::before {
+    visibility: visible;
+}
+
+
+
+
+/* HERO SECTION */
+
+
+/* FEHÉR DOBOZ - bal oldali 50% */
+.hero-box {
+    width: 35vw;
+    height: 100vh;               /* teljes hero magasság */
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.4);
+    border-radius: 40px;
+
+    display: flex;
+    flex-direction: column;      /* függőleges elrendezés */
+    align-items: center;         /* horizontális középre */
+    text-align: center;          /* szöveg középre */
+}
+
+/* SZÖVEG */
+.hero-box h1 {
+    font-size: 6vh;
+    font-weight: 300;
+    color: #262262;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-box h2 {
+    font-size: 6vh;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #262262;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-box h3 {
+    font-size: 4vh;
+    font-weight: 300;
+    color: #262262;
+    padding: 0;
+    margin-top: 1vh;
+}
+
+.hero-box p {
+    font-size: 2vh;
+    font-weight: 400;
+    color: #444;
+}
+
+/* SVG */
+.hero-svg {
+    margin-top: 18vh;
+    margin-bottom: 7vh;
+}
+
+/* Desktop hero SVG default size (was inline) */
+body.home .hero-svg img {
+    width: 25vw;
+    max-height: 30vh;
+}
+
+/*tartalmi oldalak*/
+
+/* ===== SPLIT LAYOUT ===== */
+
+.split-layout {
+    display: flex;
+    height: 100vh;
+}
+
+/* BAL OLDAL */
+.content-side {
+    width: 50%;
+    height: 100vh;
+    overflow-y: auto;
+    background: white;
+    padding: 60px 80px;
+    box-sizing: border-box;
+}
+
+/* JOBB OLDAL */
+.image-side {
+    width: 50%;
+    height: 100vh;
+    overflow: hidden; /* fontos */
+}
+
+/* A kép viselkedése */
+.image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* kitölti torzítás nélkül */
+}
+
+.content-inner p {
+  font-size: 25px;
+  font-weight: 200;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.content-inner p b {
+  font-weight: 600;
+  line-height: 2;
+}
+
+
+.content-inner h1 {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.content-inner h2 {
+  font-size: 25px;
+  font-weight: 200;
+  text-align: right;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.content-inner h3 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 70px;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+
+.info-block {
+    margin: 40px 0;
+    text-align: left;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.info-icon {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.info-text {
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #262262;
+}
+
+.info-text a:hover {
+  text-decoration: underline;
+  background-color: #26226220;
+  border-radius: 8px;
+}
+
+.info-text-2sor {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #262262;
+}
+
+
+.link {
+  line-height: 1;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  text-decoration: underline;
+  color: #262262;
+}
+
+.link:hover {
+  text-decoration: underline;
+  background-color: #26226220;
+  border-radius: 8px;
+}
+
+.mailto {
+  text-decoration: underline;
+  color: #262262;
+}
+
+.mailto:hover {
+  text-decoration: underline;
+  background-color: #26226220;
+  border-radius: 8px;
+}
+
+.full-width-img {
+    width: 100%;     /* kitölti a div szélességét */
+    height: auto;    /* arányt tart */
+    display: block;  /* eltünteti az alsó kis whitespace-et */
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.kozepre {
+   align-items: center;
+}
+
+body.contact-page .content-side {
+    display: flex;
+    align-items: center;      /* vertikális közép */
+}
+
+video {
+  width: 100%;
+  border-radius: 50px;
+}
+
+/* ===== MOBIL (PORTRAIT) ===== */
+@media (max-aspect-ratio: 1/1), (max-width: 900px) {
+    html,
+    body {
+        height: 100%;
+    }
+    nav {
+        position: fixed;
+        padding: 24px 28px;
+        height: 88px;
+    }
+
+    .left-menu,
+    .right-menu {
+        display: none;
+    }
+
+    .mobile-logo,
+    .hamburger {
+        display: flex;
+        align-items: center;
+    }
+
+    .hamburger {
+        position: fixed;
+        top: 32px;
+        right: 36px;
+        z-index: 40;
+        display: flex !important;
+    }
+
+    .mobile-logo {
+        position: fixed;
+        top: 28px;
+        left: 36px;
+        z-index: 40;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+
+    .menu-toggle:checked ~ .mobile-menu {
+        height: 100svh;
+        min-height: 100svh;
+    }
+
+    .split-layout {
+        position: relative;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .image-side {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .content-side {
+        width: 100%;
+        height: auto;
+        min-height: 100svh;
+        padding: 120px 24px 60px 24px;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(10px);
+        overflow: visible;
+        z-index: 1;
+    }
+
+    .content-inner p {
+        font-size: 20px;
+    }
+
+    .info-text,
+    .info-text-2sor {
+        font-size: 26px;
+    }
+
+    .hero-box {
+        width: 100%;
+        min-height: 100svh;
+        height: 100svh;
+        padding: 140px 28px 50px 28px;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .hero-svg {
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+
+    body.home .hero-box h1,
+    body.home .hero-box h2 {
+        font-size: 9vh;
+    }
+
+    body.home .hero-box h3 {
+        font-size: 6vh;
+    }
+
+    body.home .hero-box p {
+        font-size: 4.5vh;
+    }
+
+    body.home .hero-svg img {
+        width: 40vw;
+        max-height: 45vh;
+    }
+    .hero-box h1,
+    .hero-box h2 {
+        font-size: 4.5vh;
+    }
+
+    .hero-box h3 {
+        font-size: 3vh;
+    }
+
+    .hero-svg {
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+}
