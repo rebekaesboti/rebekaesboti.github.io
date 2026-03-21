@@ -16,7 +16,7 @@ body{
 }
 
 body.home{
-  background-image: url("../images/main.png");
+  background-image: url("../images/main.jpg");
  background-size: cover;
  background-position: center;  /* itt állítod a fókuszt */
  background-repeat: no-repeat;
@@ -427,7 +427,7 @@ video {
     }
 
     body.home{
-      background-image: url("../images/main-mobile.png");
+      background-image: url("../images/main-mobile.jpg");
     }
 
     nav {
