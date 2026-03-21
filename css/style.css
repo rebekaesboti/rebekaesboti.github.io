@@ -425,6 +425,15 @@ video {
     body {
         height: 100%;
     }
+
+    body.home{
+      background-image: url("../images/main-mobile.jpg");
+     background-size: cover;
+     background-position: center;  /* itt állítod a fókuszt */
+     background-repeat: no-repeat;
+     overflow: hidden;
+    }
+
     nav {
         position: fixed;
         padding: 24px 28px;
