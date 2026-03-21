@@ -16,9 +16,7 @@ body{
 }
 
 body.home{
-  --home-hero-image: url("../images/main.png");
-  --home-hero-image-mobile: var(--home-hero-image);
- background-image: var(--home-hero-image);
+  background-image: url("../images/main.png");
  background-size: cover;
  background-position: center;  /* itt állítod a fókuszt */
  background-repeat: no-repeat;
@@ -429,7 +427,7 @@ video {
     }
 
     body.home{
-      background-image: var(--home-hero-image-mobile);
+      background-image: url("../images/main-mobile.png");
     }
 
     nav {
